@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity
 public class User extends AbstractEntity {
-
     @Column(nullable = false, length = 20, unique = true)
     @JsonProperty
     private String userId;      // 회원 아이디
