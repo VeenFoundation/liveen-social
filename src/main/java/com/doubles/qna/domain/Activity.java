@@ -28,10 +28,10 @@ public class Activity extends AbstractEntity {
     private String hashtag;
     
     @JsonProperty
-    private int like_hit;
+    private Integer like_hit = 0;
     
     @JsonProperty
-    private int dislike_hit;
+    private Integer dislike_hit = 0;
 
     @Lob
     @JsonProperty
@@ -77,6 +77,17 @@ public class Activity extends AbstractEntity {
     public void deleteAnswer() {
         this.countOfAnswer -= 1;
     }
+    
+    // like 버튼 hit
+    public void like_hit(){
+    	this.like_hit += 1;
+    }
+    
+    // dislike 버튼 hit
+    public void dislike_hit(){
+    	this.dislike_hit += 1;
+    }
+    
     
     @Override
     public String toString() {
