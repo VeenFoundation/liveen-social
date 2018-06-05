@@ -23,6 +23,19 @@
 							 {{contents}} <br>
                             <img src="../images/location1.png" width="200" height="100"> <br>
                             #{{hashtag}}  
+                            
+                            <!-- 
+						   <a href="/activity/favorite/{{id}}" class="btn btn-primary pull-right" role="button">Dislike:{{dislike_hit}}</a>
+                           <a href="/activity/favorite/{{id}}" class="btn btn-primary pull-right" role="button">Like:{{like_hit}}</a>   
+                            -->
+                             
+                           <form class="favorite-likeclick" method="post" action="/activity/favorite/{{id}}/like">
+                                <input type="submit" class="btn btn-success pull-right" name="/activity/favorite/{{id}}/like" value="Like:{{like_hit}}">
+                           </form>
+                           <form class="favorite-dislikeclick" method="post" action="/activity/favorite/{{id}}/dislike">
+                                <input type="submit" class="btn btn-success pull-right" name="/activity/favorite/{{id}}/dislike" value="Dislike:{{dislike_hit}}">
+                           </form>                            
+                            
                             <div class="auth-info">
                                 <i class="icon-add-comment"></i>
                                 <span class="time">Date : {{formattedCreateDate}}</span>
@@ -54,7 +67,7 @@
                 <div class="col-md-3 qna-write">
                     <a href="/questions/form" class="btn btn-primary pull-right" role="button">Upload</a> 
                     <a href="/questions/form" class="btn btn-primary pull-right" role="button">Location</a>
-                </div>
+                </div>      
             </div>
         </div>
     </div>

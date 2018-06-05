@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @RestController
-@RequestMapping("/api/questions/{questionId}/answers")
+@RequestMapping("/api/questions/{activityId}/answers")
 public class ApiAnswerController {
 
     @Autowired

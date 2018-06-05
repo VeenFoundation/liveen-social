@@ -98,6 +98,8 @@ public class Activity extends AbstractEntity {
                 ", hashtag='" + hashtag + '\'' +
                 ", answers=" + answers + '\'' +
                 ", countOfAnswer=" + countOfAnswer +
+                ", like_hit=" + like_hit +
+                ", dislike_hit=" + dislike_hit +
                 '}';
     }
 

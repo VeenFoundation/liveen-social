@@ -61,7 +61,7 @@ public class QuestionController {
         if ( !question.isSameWriter(loginUser) ) {
             return Result.fail("자신이 쓴 글만 수정, 삭제가 가능합니다.");
         }
-        return Result.ok();
+        return Result.ok(); 
     }
 
     // 권한체크 메서드 2 : exception 으로 구현

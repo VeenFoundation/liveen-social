@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/questions/{questionId}/answers")
+@RequestMapping("/questions/{activityId}/answers")
 public class AnswerController {
 
     @Autowired
@@ -19,17 +19,17 @@ public class AnswerController {
 
     // 답변 하기
     @PostMapping
-    public  String create(@PathVariable Long questionId, String contents, HttpSession session) {
+    public  String create(@PathVariable Long activityId, String contents, HttpSession session) {
         // 로그인되어 있지 않으면 로그인 페이지로
         if ( !HttpSessionUtils.isLoginUser(session) ) {
             return "/users/login";
         }
         // 로그인된 회원의 정보 가져오기
         User loginUser = HttpSessionUtils.getUserFromSession(session);
-        Activity question = questionRepository.findOne(questionId);
+        Activity question = questionRepository.findOne(activityId);
         Answer answer = new Answer(loginUser, question, contents);
         answerRepository.save(answer);
-        return  String.format("redirect:/questions/%d", questionId);
+        return  String.format("redirect:/questions/%d", activityId);
     }
 
     // 답변 수정하기
