@@ -1,19 +1,20 @@
 package com.doubles.qna.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.doubles.qna.domain.Activity;
 import com.doubles.qna.domain.ActivityRepository;
-import com.doubles.qna.domain.Result;
 import com.doubles.qna.domain.User;
+import com.google.gson.Gson;
 
 @RestController
 @RequestMapping("/activity/favorite")
@@ -24,12 +25,8 @@ public class FavoriteController {
 	
     
     // Like / Dislike Count 하기 
-//    @GetMapping("/favorite/{id}")
-//    @PostMapping
     @PostMapping("/{id}/{favor}")
     public  Activity favoriteLike(@PathVariable Long id, @PathVariable String favor, HttpSession session)  {
-    	
-        System.out.println("activity id : " + id);
         
         // 로그인되어 있지 않으면 로그인 페이지로
         if ( !HttpSessionUtils.isLoginUser(session) ) {
@@ -51,7 +48,22 @@ public class FavoriteController {
         }else {
         	return null;
         }
+        
+//        List<Activity> aList = activityRepository.findByTitle("Hot");
+//        for(Activity act : aList){
+//        	System.out.println("alist = " + act.toString());
+//        }
+//        List<Activity> aList = activityRepository.findAllMyData();
+// 
+//        Gson gson = new Gson();
+//        System.out.println("alist Json = " + gson.toJson(aList));
+        
+        RestTemplate restTemplate = new RestTemplate();
+//        Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);  // Call restapi and return with Quote class (To create)
 
+        
+        
+	
         return activity;
     }    
 }

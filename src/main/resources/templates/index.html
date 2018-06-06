@@ -28,13 +28,14 @@
 						   <a href="/activity/favorite/{{id}}" class="btn btn-primary pull-right" role="button">Dislike:{{dislike_hit}}</a>
                            <a href="/activity/favorite/{{id}}" class="btn btn-primary pull-right" role="button">Like:{{like_hit}}</a>   
                             -->
-                             
-                           <form class="favorite-likeclick" method="post" action="/activity/favorite/{{id}}/like">
-                                <input type="submit" class="btn btn-success pull-right" name="/activity/favorite/{{id}}/like" value="Like:{{like_hit}}">
-                           </form>
                            <form class="favorite-dislikeclick" method="post" action="/activity/favorite/{{id}}/dislike">
-                                <input type="submit" class="btn btn-success pull-right" name="/activity/favorite/{{id}}/dislike" value="Dislike:{{dislike_hit}}">
-                           </form>                            
+                                <input type="text" style="width:70px;" class="pull-right" id=dislikebtn{{id}} value="Dislike:{{dislike_hit}}" style="border:0px" readonly/> 
+                                <input type="image" alt="submit" src="../images/Dislike.png" width="40" height="30" class="btn btn-xs pull-right"  name="/activity/favorite/{{id}}/dislike" value="dislikebtn{{id}}"/>
+                           </form>    
+                            <form class="favorite-likeclick" method="post" action="/activity/favorite/{{id}}/like">
+                           		<input type="text" style="width:70px;" class="pull-right" id="likebtn{{id}}" value="Like:{{like_hit}}" style="border:0px" readonly/>  
+                                <input type="image" alt="submit" src="../images/Like.png" width="40" height="30" class="btn btn-xs pull-right" name="/activity/favorite/{{id}}/like" value="likebtn{{id}}"/>  
+                           </form>                        
                             
                             <div class="auth-info">
                                 <i class="icon-add-comment"></i>

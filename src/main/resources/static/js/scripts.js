@@ -21,8 +21,6 @@ function addAnswer(e) {
 }
 
 
-
-
 // AJAX 요청 처리 실패시
 function onError(status) {
     console.log("error" + status);
@@ -39,8 +37,8 @@ function onSuccess (data, status) {
 
 
 // Favorite 버튼 클릭 이벤트 발생시 addAnswer 함수 호출
-$(".favorite-likeclick input[type=submit]").click(likehit);
-$(".favorite-dislikeclick input[type=submit]").click(dislikehit);
+$(".favorite-likeclick input[type=image]").click(likehit);
+$(".favorite-dislikeclick input[type=image]").click(dislikehit);
 
 // Favorite 추가 AJAX 요청 처리를 위한 함수
 function likehit(e) {
@@ -49,6 +47,7 @@ function likehit(e) {
     var url = $(this).attr("name");
     console.log("like url : "+url);
     var userpost = $(this);
+    var postval = userpost.val();
     
     // AJAX POST 요청 처리
     $.ajax({	
@@ -57,12 +56,11 @@ function likehit(e) {
         dataType : 'json',
         error : function (xhr, status) {
         	console.log(status);
-        	alert("You need to login. You can't click like/dislike button for your post.");
+        	alert("You need to login. You can't click a like button for your post.");
         },
         success : function (data, status) {
         	console.log("return data like : " + data.like_hit);
-            userpost.val("Like:"+data.like_hit);  
-            console.log(userpost.val());
+        	$("#"+postval).val("Like:"+data.like_hit); 
         }
     });
 }
@@ -74,6 +72,7 @@ function dislikehit(e) {
     var url = $(this).attr("name");
     console.log("dislike url : "+url);
     var userpost = $(this);
+    var postval = userpost.val();
     
     // AJAX POST 요청 처리
     $.ajax({	
@@ -82,12 +81,11 @@ function dislikehit(e) {
         dataType : 'json',
         error : function (xhr, status) {
         	console.log(status);
-        	alert("You need to login.");
+        	alert("You need to login. You can't click a dislike button for your post.");
         },
         success : function (data, status) {
-            console.log("return dislikedata : " + data.dislike_hit);
-            userpost.val("Dislike:"+data.dislike_hit);  
-            console.log(userpost.val());
+            console.log("return dislikedata : " + data.dislike_hit);       
+            $("#"+postval).val("Dislike:"+data.dislike_hit); 
         }
     });
 }
