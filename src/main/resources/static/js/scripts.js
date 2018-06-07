@@ -20,6 +20,7 @@ function addAnswer(e) {
     });
 }
 
+
 // AJAX 요청 처리 실패시
 function onError(status) {
     console.log("error" + status);
@@ -33,6 +34,62 @@ function onSuccess (data, status) {
     $(".qna-comment-slipp-articles").prepend(template); //  변수 template 에 담긴 답변을 append
     $(".answer-write textarea").val("");    // textarea 에 남아있는 내용 지우기
 }
+
+
+// Favorite 버튼 클릭 이벤트 발생시 addAnswer 함수 호출
+$(".favorite-likeclick input[type=image]").click(likehit);
+$(".favorite-dislikeclick input[type=image]").click(dislikehit);
+
+// Favorite 추가 AJAX 요청 처리를 위한 함수
+function likehit(e) {
+    console.log("clicked");
+    e.preventDefault(); // submit 기본 효과 방지
+    var url = $(this).attr("name");
+    console.log("like url : "+url);
+    var userpost = $(this);
+    var postval = userpost.val();
+    
+    // AJAX POST 요청 처리
+    $.ajax({	
+        type : 'post',
+        url : url,
+        dataType : 'json',
+        error : function (xhr, status) {
+        	console.log(status);
+        	alert("You need to login. You can't click a like button for your post.");
+        },
+        success : function (data, status) {
+        	console.log("return data like : " + data.like_hit);
+        	$("#"+postval).val("Like:"+data.like_hit); 
+        }
+    });
+}
+
+//Favorite 추가 AJAX 요청 처리를 위한 함수
+function dislikehit(e) {
+    console.log("clicked");
+    e.preventDefault(); // submit 기본 효과 방지
+    var url = $(this).attr("name");
+    console.log("dislike url : "+url);
+    var userpost = $(this);
+    var postval = userpost.val();
+    
+    // AJAX POST 요청 처리
+    $.ajax({	
+        type : 'post',
+        url : url,
+        dataType : 'json',
+        error : function (xhr, status) {
+        	console.log(status);
+        	alert("You need to login. You can't click a dislike button for your post.");
+        },
+        success : function (data, status) {
+            console.log("return dislikedata : " + data.dislike_hit);       
+            $("#"+postval).val("Dislike:"+data.dislike_hit); 
+        }
+    });
+}
+
 
 // 답변삭제 클릭 이벤트 발생시 deleteAnswer 함수 호출
 $(".qna-comment").on('click', '.link-delete-article', deleteAnswer);

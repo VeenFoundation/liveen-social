@@ -89,33 +89,35 @@ public class Activity extends AbstractEntity {
     }
     
     
+//    @Override
+//    public String toString() {
+//        return "Activity{" + super.toString() +
+//                "writer=" + writer +
+//                ", title='" + title + '\'' +
+//                ", contents='" + contents + '\'' +
+//                ", hashtag='" + hashtag + '\'' +
+//                ", answers=" + answers + '\'' +
+//                ", countOfAnswer=" + countOfAnswer +
+//                ", like_hit=" + like_hit +
+//                ", dislike_hit=" + dislike_hit +
+//                '}';
+//    }
+
     @Override
     public String toString() {
         return "Activity{" + super.toString() +
                 "writer=" + writer +
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
-                ", hashtag='" + hashtag + '\'' +
-                ", answers=" + answers + '\'' +
+                ", answers=" + answers +
                 ", countOfAnswer=" + countOfAnswer +
+                ", location=" + location +
+                ", behaviour=" + behaviour +
+                ", hashtag=" + hashtag +
+                ", like_hit=" + like_hit +
+                ", dislike_hit=" + dislike_hit +
+                ", contentType=" + contentType +
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        return "Activity{" + super.toString() +
-//                "writer=" + writer +
-//                ", title='" + title + '\'' +
-//                ", text='" + text + '\'' +
-//                ", answers=" + answers +
-//                ", countOfAnswer=" + countOfAnswer +
-//                ", location=" + "test" +
-//                ", behaviour=" + "test" +
-//                ", hashtag=" + "test" +
-//                ", like_hit=" + 1 +
-//                ", dislike_hit=" + 1 +
-//                ", contentType=" + "test" +
-//                '}';
-//    }
 }
 
