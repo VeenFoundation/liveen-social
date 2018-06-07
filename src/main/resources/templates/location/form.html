@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <title>Doubles QnA | QnA Post Form</title>
+    {{> /include/header}}
+</head>
+<body>
+{{> /include/navigation}}
+<div class="container" id="main">
+    <div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default content-main">
+            <form name="location" method="post" action="/locations">
+                <div class="form-group">
+                    <label for="name">현재 위치는 어디신가요?</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="name"/>
+                </div>
+                <div class="form-group">
+                    <select name="behavior" id="behavior" class="form-control">
+                        <option value="">현재 위치에서 무엇을 하고 계셨나요?</option>
+                        <option value="쇼핑">쇼핑</option>
+                        <option value="식사">식사</option>
+                        <option value="운전">운전</option>
+                        <option value="운동">운동</option>
+                        <option value="영화">영화</option>
+                        <option value="교육">교육</option>
+                        <option value="병원">병원</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success clearfix pull-right">Upload</button>
+                <div class="clearfix"/>
+            </form>
+        </div>
+    </div>
+</div>
+{{> /include/footer}}
+</body>
+</html>

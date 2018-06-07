@@ -9,41 +9,48 @@
 
 {{> /include/navigation}}
 
-<div class="container" id="main">
-    <div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
-        <div class="panel panel-default qna-list">
-            <ul class="list">
-                {{#questions}}
-                <li>
-                    <div class="wrap">
-                        <div class="main">
-                            <strong class="subject">
-                                <a href="/questions/{{id}}">{{title}}</a>
-                            </strong>
-							 {{contents}} <br>
-                            <img src="../images/location1.png" width="200" height="100"> <br>
-                            #{{hashtag}}  
-                            <div class="auth-info">
-                                <i class="icon-add-comment"></i>
-                                <span class="time">Date : {{formattedCreateDate}}</span>
-                                <span class="time">Update Time : {{formattedModifiedDate}}</span>
-                                <a href="/user/profile" class="author">Author : {{writer.userId}}</a>
-                            </div>
-                            <div class="reply" title="Reply">
-                                <i class="icon-reply"></i>
-                                <span class="point">{{countOfAnswer}}</span>
+<div class="container-fluid" id="main">
+    <div class="row full-height">
+        <div class="col-md-6 full-height">
+            <div id="map"></div>
+        </div>
+        <div class="col-md-6 full-height">
+            <div class="panel panel-default qna-list full-height">
+                <ul class="list full-height">
+                    {{#questions}}
+                    <li>
+                        <div class="wrap">
+                            <div class="main">
+                                <strong class="subject">
+                                    <a href="/questions/{{id}}">{{title}}</a>
+                                </strong>
+                                {{contents}} <br>
+                                <img src="../images/location1.png" width="200" height="100"> <br>
+                                #{{hashtag}}
+                                <div class="auth-info">
+                                    <i class="icon-add-comment"></i>
+                                    <span class="time">Date : {{formattedCreateDate}}</span>
+                                    <span class="time">Update Time : {{formattedModifiedDate}}</span>
+                                    <a href="/user/profile" class="author">Author : {{writer.userId}}</a>
+                                </div>
+                                <div class="reply" title="Reply">
+                                    <i class="icon-reply"></i>
+                                    <span class="point">{{countOfAnswer}}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                {{/questions}}
-            </ul>
-            <div class="row">
-                <div class="col-md-9"></div>
-                <div class="col-md-3 qna-write">
-                    <a href="/questions/form" class="btn btn-primary pull-right" role="button">Upload</a> 
-                    <a href="/questions/form" class="btn btn-primary pull-right" role="button">Location</a>
-                </div>
+                    </li>
+                    {{/questions}}
+                    <li>
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3 qna-write">
+                                <a href="/questions/form" class="btn btn-primary pull-right" role="button">Upload</a>
+                                <a href="/locations/form" class="btn btn-primary pull-right" role="button">Location</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
