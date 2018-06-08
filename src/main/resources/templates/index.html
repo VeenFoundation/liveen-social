@@ -17,10 +17,20 @@
         <div class="col-md-6 full-height">
             <div class="panel panel-default qna-list full-height">
                 <ul class="list full-height">
-                    {{#questions}}
+                    {{#activities}}
                     <li>
                         <div class="wrap">
                             <div class="main">
+                                {{#isLocation}}
+                                <div class="content-location">
+                                    <div class="page-header">
+                                        <b>{{behaviour}}</b> / <b>{{location}}</b>
+                                    </div>
+                                    <div class="page-author">{{writer.userId}}</div>
+                                    <div class="time">{{formattedCreateDate}}</div>
+                                </div>
+                                {{/isLocation}}
+                                {{^isLocation}}
                                 <strong class="subject">
                                     <a href="/questions/{{id}}">{{title}}</a>
                                 </strong>
@@ -37,14 +47,14 @@
                                     <i class="icon-reply"></i>
                                     <span class="point">{{countOfAnswer}}</span>
                                 </div>
+                                {{/isLocation}}
                             </div>
                         </div>
                     </li>
-                    {{/questions}}
+                    {{/activities}}
                     <li>
                         <div class="row">
-                            <div class="col-md-9"></div>
-                            <div class="col-md-3 qna-write">
+                            <div class="col-md-12 qna-write">
                                 <a href="/questions/form" class="btn btn-primary pull-right" role="button">Upload</a>
                                 <a href="/locations/form" class="btn btn-primary pull-right" role="button">Location</a>
                             </div>

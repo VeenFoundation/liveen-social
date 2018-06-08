@@ -14,15 +14,12 @@ import org.springframework.web.client.RestTemplate;
 import com.doubles.qna.domain.Activity;
 import com.doubles.qna.domain.ActivityRepository;
 import com.doubles.qna.domain.User;
-import com.google.gson.Gson;
 
 @RestController
 @RequestMapping("/activity/favorite")
 public class FavoriteController {
-
     @Autowired
     private ActivityRepository activityRepository;
-	
     
     // Like / Dislike Count 하기 
     @PostMapping("/{id}/{favor}")
@@ -39,14 +36,15 @@ public class FavoriteController {
         
         Activity activity = activityRepository.findOne(id);
 
-        if(!activity.isSameWriter(loginUser)){
-            if(favor.equals("like"))
-            	activity.like_hit();  
+        if (!activity.isSameWriter(loginUser)) {
+            if (favor.equals("like"))
+            	    activity.like_hit();
             else 
-            	activity.dislike_hit();
+            	    activity.dislike_hit();
+
             activityRepository.save(activity);
-        }else {
-        	return null;
+        } else {
+        	    return null;
         }
         
 //        List<Activity> aList = activityRepository.findByTitle("Hot");

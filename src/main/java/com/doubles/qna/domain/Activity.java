@@ -47,6 +47,9 @@ public class Activity extends AbstractEntity {
     @JsonProperty
     private Integer countOfAnswer = 0;
 
+    @JsonProperty
+    private boolean isLocation = false;
+
     public Activity() {
     }
 
@@ -87,9 +90,40 @@ public class Activity extends AbstractEntity {
     public void dislike_hit(){
     	this.dislike_hit += 1;
     }
-    
-    
-//    @Override
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getBehaviour() {
+        return behaviour;
+    }
+
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public boolean isLocation() {
+        return isLocation;
+    }
+
+    public void setIsLocation(boolean location) {
+        isLocation = location;
+    }
+
+    //    @Override
 //    public String toString() {
 //        return "Activity{" + super.toString() +
 //                "writer=" + writer +
