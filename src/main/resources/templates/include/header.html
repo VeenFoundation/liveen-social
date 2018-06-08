@@ -3,13 +3,3 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/styles.css" rel="stylesheet">
-
-<script>
-    function initMap() {
-      var seoul = {lat: 37.566535, lng: 126.97796919999996};
-      var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 15, center: seoul});
-      var marker = new google.maps.Marker({position: seoul, map: map});
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEAuNsvuWEsy1gsevc78KUnBsfQfr_9ek&callback=initMap"></script>

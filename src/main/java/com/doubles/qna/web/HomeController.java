@@ -26,10 +26,7 @@ public class HomeController {
         List<Activity> activities = activityRepository.findAll(sort);
 
         for(Activity act : activities) {
-            act.setIsLocation(act.getContentType().equals(ContentType.CONTENT_LCOATION));
-            System.out.println("--------------");
-            System.out.println(act.getLocation() + " -/- " + act.getBehaviour());
-            System.out.println("-------------");
+            act.setIsLocation(act.getContentType() != null && act.getContentType().equals(ContentType.CONTENT_LCOATION));
         }
 
         model.addAttribute("activities", activities);
